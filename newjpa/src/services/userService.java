@@ -32,6 +32,14 @@ public class userService {
 
 	}
 	
+	public User findUserById(int id) {
+
+		Query q = entityManager.createNamedQuery("findUserById");
+		q.setParameter("id", id);
+		User u = (User)q.getResultList().get(0);
+		return u;
+
+	}
 	public void removeUser(int id) {
 
 		User user = entityManager.find(User.class, id);
